@@ -1,10 +1,10 @@
 def inputdata():
     prefixs = "192.168.1"
-    suffixs = "10-20, 30, 37-99, 45, 252"
+    suffixs = "10, 22, 35-47, 112, 200-225, 252"
     ips = generateIP(prefixs, suffixs)
     vlan = "99"
     vrf = "default"
-    port_s = "ICMP, 3725"
+    port_s = "ICMP, 22, 80, 443, 3725, 445, 135, 137, 138, 139, 1024-4096"
     ports = generatePort(port_s)
     return ips, vlan, vrf, ports
 
@@ -19,7 +19,7 @@ def generateIP(prefixs, suffixs):
                 ips_l.append(prefixs + "." + str(j))
         else:
             ips_l.append(prefixs + "." + suffix)
-    return ips_l
+    return set(ips_l)
 
 def generatePort(ports):
     ports_l = []
@@ -32,7 +32,7 @@ def generatePort(ports):
                 ports_l.append(str(j))
         else:
             ports_l.append(port)
-    return ports_l
+    return set(ports_l)
 
 def printInfo(ips, vlan, vrf, ports):
     print(">>>" + "="*50 +">>>")
