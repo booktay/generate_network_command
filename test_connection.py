@@ -19,7 +19,7 @@ def generateIP(prefixs, suffixs):
                 ips_l.append(prefixs + "." + str(j))
         else:
             ips_l.append(prefixs + "." + suffix)
-    return set(ips_l)
+    return sorted(set(ips_l))
 
 def generatePort(ports):
     ports_l = []
@@ -32,7 +32,7 @@ def generatePort(ports):
                 ports_l.append(str(j))
         else:
             ports_l.append(port)
-    return set(ports_l)
+    return sorted(set(ports_l))
 
 def printInfo(ips, vlan, vrf, ports):
     print(">>>" + "="*50 +">>>")
