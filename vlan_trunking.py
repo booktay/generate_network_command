@@ -25,7 +25,7 @@ def generate_uplink_trunk_inteface(uplink_po):
     print("show interface port-channel " + ", ".join(uplink_po) + " trunk")
 
 def generate_downlink_interface(downlink_po, uplink_po):
-    print("show interface interface port-channel " + ", port-channel ".join(downlink_po) + ", port-channel " + uplink_po)
+    print("show running-config interface port-channel " + ", port-channel ".join(downlink_po) + ", port-channel " + uplink_po)
 
 def generate_add_or_remove_vlans(vlans, command):
     print("switchport trunk allowed vlan " + command + " " + ", ".join(vlans))
@@ -134,6 +134,14 @@ def input_data():
     uplink = ""
     downlink = [
         [
+            "",
+            [
+                "",
+                ""
+            ],
+            "",
+            "",
+            ""
         ]
     ]
     return uplink, downlink
